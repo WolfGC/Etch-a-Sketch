@@ -9,9 +9,9 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <input class="input" type="number" min="10" max="100">
-    <button>Apply</button>
-    <button class="clear">Clear</button>
+    <!-- autocomplete off fixes Firefox bug-->
+    <input class="input" type="number" value="16" autocomplete="off"/>
+    <button class="new-grid">New Grid</button>
     <div id="grid" class="grid"></div>
 </body>
 </html>
