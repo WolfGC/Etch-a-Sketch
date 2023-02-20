@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  font-family: "Roboto", "sans-serif";
+}
+
+.grid {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+}
+.grid .grid-block {
+  background-color: red;
+  aspect-ratio: 1;
+}
+.grid .active {
+  background-color: black;
+}/*# sourceMappingURL=styles.css.map */
