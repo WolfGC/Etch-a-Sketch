@@ -1,31 +1,41 @@
-let input = 16;
+let gridSizeInput = 16;
 let colorValue = `#d62828`;
-let modeValue = "singleColor";
+let modeState = "singleColor";
 
 const grid = document.querySelector(".grid");
 const newGridBtn = document.querySelector(".new-grid");
+const userColor = document.querySelector(".color-picker");
 const multiColorBtn = document.querySelector(".multi-color");
 const singleColorBtn = document.querySelector(".single-color");
-const userColor = document.querySelector(".color-picker");
 
 userColor.oninput = (e) => updateColor(e.target.value);
-newGridBtn.onclick = () => newGrid();
+newGridBtn.onclick = () => updateGrid();
 multiColorBtn.onclick = () => updateMode("multiColor");
 singleColorBtn.onclick = () => updateMode("singleColor");
 
-function updateColor(newColor) {
-  colorValue = newColor;
+function updateMode(newModeState) {
+  setMode(newModeState);
+  modeState = newModeState;
 }
 
-function updateMode(newMode) {
-  setMode(newMode);
-  modeValue = newMode;
+function updateColor(newColorValue) {
+  colorValue = newColorValue;
+}
+
+function setMode(newModeState) {
+  if (newModeState === "multiColor") {
+    multiColorBtn.classList.add("active");
+    singleColorBtn.classList.remove("active");
+  } else if (newModeState === "singleColor") {
+    singleColorBtn.classList.add("active");
+    multiColorBtn.classList.remove("active");
+  }
 }
 
 function changeColor(e) {
-  if (modeValue === "singleColor") {
+  if (modeState === "singleColor") {
     e.target.style.backgroundColor = colorValue;
-  } else if (modeValue === "multiColor") {
+  } else if (modeState === "multiColor") {
     const randomR = Math.floor(Math.random() * 256);
     const randomG = Math.floor(Math.random() * 256);
     const randomB = Math.floor(Math.random() * 256);
@@ -33,40 +43,26 @@ function changeColor(e) {
   }
 }
 
-function setMode(newMode) {
-  if (modeValue === "multiColor") {
-    multiColorBtn.classList.remove("active");
-  } else if (modeValue === "singleColor") {
-    singleColorBtn.classList.remove("active");
-  }
-
-  if (newMode === "multiColor") {
-    multiColorBtn.classList.add("active");
-  } else if (newMode === "singleColor") {
-    singleColorBtn.classList.add("active");
-  }
-}
-
-function newGrid() {
-  handleInput(input);
+function updateGrid() {
+  handleInput(gridSizeInput);
   grid.innerHTML = "";
-  initGrid(input);
+  initGrid(gridSizeInput);
 }
 
 function handleInput() {
-  input = document.querySelector(".input").value;
-  if (input > 100) input = 100;
-  if (input < 10) input = 10;
-  return input;
+  gridSizeInput = document.querySelector(".input").value;
+  if (gridSizeInput > 100) gridSizeInput = 100;
+  if (gridSizeInput < 10) gridSizeInput = 10;
+  return gridSizeInput;
 }
 
-function initGrid(input) {
-  grid.style.gridTemplateColumns = `repeat(${input} , 1fr)`;
-  for (i = 0; i < input * input; i++) {
+function initGrid(gridSizeInput) {
+  grid.style.gridTemplateColumns = `repeat(${gridSizeInput} , 1fr)`;
+  for (i = 0; i < gridSizeInput * gridSizeInput; i++) {
     const gridBlock = document.createElement("div");
     gridBlock.classList.add("grid-block");
     gridBlock.addEventListener("mouseover", changeColor);
     grid.appendChild(gridBlock);
   }
 }
-initGrid(input);
+initGrid(gridSizeInput);
