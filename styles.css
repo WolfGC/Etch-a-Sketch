@@ -4,6 +4,20 @@
   font-family: "Roboto", "sans-serif";
 }
 
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  height: 100vh;
+}
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .grid {
   display: grid;
   width: 500px;
@@ -11,9 +25,15 @@
   background-color: blue;
 }
 .grid .grid-block {
-  background-color: red;
+  background-color: #fff;
   aspect-ratio: 1;
 }
-.grid .active {
-  background-color: black;
+
+button {
+  width: 200px;
+  height: 20px;
+}
+
+.active {
+  background-color: red;
 }/*# sourceMappingURL=styles.css.map */

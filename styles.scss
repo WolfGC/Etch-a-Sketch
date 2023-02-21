@@ -9,6 +9,18 @@ $reseda_green:#5b7553;
     margin:0;
     font-family:'Roboto' , 'sans-serif';
 }
+body{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:auto;
+    height:100vh;
+}
+.cont{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
 .grid{
     display:grid;
     width:500px;
@@ -16,11 +28,15 @@ $reseda_green:#5b7553;
     background-color:blue;
 
     .grid-block{
-        background-color:red;
+        background-color:$white;
         aspect-ratio: 1;
     }
+}
+button{
+    width:200px;
+    height:20px;
+}
 
-    .active{
-        background-color:black;
-    }
+.active{
+    background-color:red;
 }
