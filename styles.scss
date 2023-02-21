@@ -1,42 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-$rich_black:#001514;
-$fe_red:#d62828;
-$white:#fff;
-$cerulean:#40798c;
-$reseda_green:#5b7553;
+$rich_black: #001514;
+$fe_red: #d62828;
+$white: #fff;
+$cerulean: #40798c;
+$reseda_green: #5b7553;
 
-*{
-    margin:0;
-    font-family:'Roboto' , 'sans-serif';
+* {
+  margin: 0;
+  font-family: "Roboto", "sans-serif";
 }
-body{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    grid-template-rows:auto;
-    height:100vh;
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  height: 100vh;
 }
-.cont{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+.cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.grid{
-    display:grid;
-    width:500px;
-    height:500px;
-    background-color:blue;
+.grid {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  background-color: blue;
 
-    .grid-block{
-        background-color:$white;
-        aspect-ratio: 1;
-    }
+  .grid-block {
+    background-color: $white;
+    aspect-ratio: 1;
+  }
 }
-button{
-    width:200px;
-    height:20px;
+button {
+  width: 200px;
+  height: 20px;
 }
 
-.active{
-    background-color:red;
+.active {
+  background-color: red;
 }
