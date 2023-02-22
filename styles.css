@@ -33,7 +33,6 @@ body {
 }
 .grid .grid-block {
   background-color: #fff;
-  aspect-ratio: 1;
 }
 
 input {
