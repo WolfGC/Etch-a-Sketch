@@ -21,7 +21,7 @@ body {
   grid-gap: 2em;
 }
 .cont-content {
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .grid {
