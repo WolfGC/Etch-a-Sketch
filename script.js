@@ -12,6 +12,7 @@ userColor.oninput = (e) => updateColor(e.target.value);
 newGridBtn.onclick = () => updateGrid();
 multiColorBtn.onclick = () => updateMode("multiColor");
 singleColorBtn.onclick = () => updateMode("singleColor");
+singleColorBtn.style.color = colorValue;
 
 function updateMode(newModeState) {
   setMode(newModeState);
@@ -20,6 +21,7 @@ function updateMode(newModeState) {
 
 function updateColor(newColorValue) {
   colorValue = newColorValue;
+  singleColorBtn.style.color = colorValue;
 }
 
 function setMode(newModeState) {
@@ -40,6 +42,7 @@ function changeColor(e) {
     const randomG = Math.floor(Math.random() * 256);
     const randomB = Math.floor(Math.random() * 256);
     e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    multiColorBtn.style.color = `rgb(${randomR}, ${randomG}, ${randomB})`;
   }
 }
 

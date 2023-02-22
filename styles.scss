@@ -4,7 +4,6 @@ $fe_red: #d62828;
 $white: #fff;
 $cerulean: #40798c;
 $reseda_green: #5b7553;
-
 * {
   margin: 0;
   font-family: "Roboto", "sans-serif";
@@ -19,24 +18,74 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  &-toolbar {
+    @extend .cont;
+    justify-content: center;
+    grid-gap: 2em;
+  }
+
+  &-content {
+    @extend .cont;
+    justify-content: space-evenly;
+  }
 }
 .grid {
   display: grid;
   width: 500px;
   height: 500px;
   background-color: blue;
+  border: 5px solid black;
 
   .grid-block {
     background-color: $white;
     aspect-ratio: 1;
   }
 }
-button {
+input {
+  border: 3px solid black;
   width: 200px;
-  height: 20px;
+  font-size: 1rem;
+  height: 3.25rem;
+  appearance: text-field;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+button {
+  border: 3px solid black;
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  background-color: white;
+
+  &:before {
+    content: "";
+    background-color: white;
+    box-shadow: -10px 10px 0 darken($rich_black, 10%),
+      -20px 20px 0 darken($white, 20%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3.25rem;
+    width: 100%;
+    transform: translate(-5px, 5px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform, box-shadow;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    box-shadow: none;
+    transform: translate(0, 0);
+  }
 }
 
 .active {
-  background-color: red;
+  background-color: black;
+  color: white;
 }
